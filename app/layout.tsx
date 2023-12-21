@@ -1,7 +1,10 @@
 import { Metadata } from 'next';
 import '@/app/ui/global.css'
 import { inter } from '@/app/ui/fonts'
+// import { WebVitals } from './_components/web-vitals'
+import { NavigationEvents } from './_components//navigation-events'
 
+import { Suspense } from 'react'
 export const metadata: Metadata = {
   title: {
     template: '%s | Acme Dashboard',
@@ -18,7 +21,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        {/* <WebVitals /> */}
+        {children}
+        <Suspense fallback={null}>
+          <NavigationEvents />
+        </Suspense>
+      </body>
     </html>
   );
 }

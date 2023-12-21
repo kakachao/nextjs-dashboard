@@ -15,6 +15,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     } else {
       params.delete('query');
     }
+    //@ts-ignore
     replace(`${pathname}?${params.toString()}`);
   }, 300);
   return (
